@@ -1,0 +1,23 @@
+Title: *title*
+
+*title* is a 2D top-down shooter with a time rewinding mechanic.
+The player will travel through a procedurally generated level
+while fighting enemies. The art style will be neon with heavy
+use of particles with extra effects to emphasize the time 
+reversal mechanic. The game will have permadeath and random
+generation, making it fit into the roguelike genre.
+
+Programming:
+- Command pattern for time rewind
+- Object pooling for projectiles
+- Singletons for various management scripts
+- Procedural generation
+
+AI:
+- Behavior trees
+- Dynamic difficulty
+
+Art:
+- Bright, flashy, neon
+- Particles for bullets, explosions, rewinds
+- Ghost trail shaders
