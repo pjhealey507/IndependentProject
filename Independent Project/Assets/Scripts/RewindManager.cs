@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 //Manages if the scene is in reverse or not, and controls how many actions are reversed
 
@@ -26,6 +27,8 @@ public class RewindManager : MonoBehaviour
     public bool rewinding = false;
     private List<RewindableObject> rewindable_objects;
 
+    public TMP_Text rewinding_text;
+
 	// Update is called once per frame
 	void FixedUpdate()
     {
@@ -43,12 +46,13 @@ public class RewindManager : MonoBehaviour
     public void EnterRewind()
     {
         rewinding = true;
+        rewinding_text.gameObject.SetActive(true);
     }
 
     public void ExitRewind()
     {
-        //stop rewinding after 
         rewinding = false;
+        rewinding_text.gameObject.SetActive(false);
     }
 
     public void AddRewindableObject(RewindableObject r)
