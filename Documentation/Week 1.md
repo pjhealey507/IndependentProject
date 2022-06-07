@@ -13,3 +13,5 @@ player is rewinding and executing the reverse of the commands.
 The player also has the ability to shoot projectiles which will 
 also rewind when the player is holding the rewind button. Both 
 the player and the bullets are subclasses of RewindableObject. 
+
+![](https://media.githubusercontent.com/media/pjhealey507/IndependentProject/master/Demos/Week%201%20Demo.gif)
