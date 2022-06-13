@@ -17,6 +17,9 @@ public class PlayerControl : Character
 	{
         //this has to be in update because detecting keyup in fixedupdate is inconsistent
         input.GetRewind();
+
+        //move this somewhere else
+        hp_text.text = hp.ToString();
     }
 
 

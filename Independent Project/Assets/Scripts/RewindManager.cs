@@ -47,12 +47,24 @@ public class RewindManager : MonoBehaviour
     {
         rewinding = true;
         rewinding_text.gameObject.SetActive(true);
+
+        //no collision during rewind
+        foreach (RewindableObject c in rewindable_objects)
+        {
+            //c.GetComponent<Rigidbody2D>().simulated = false;
+        }
     }
 
     public void ExitRewind()
     {
         rewinding = false;
         rewinding_text.gameObject.SetActive(false);
+
+        //turn it back on after
+        foreach (RewindableObject c in rewindable_objects)
+        {
+            c.GetComponent<Rigidbody2D>().simulated = true;
+        }
     }
 
     public void AddRewindableObject(RewindableObject r)
