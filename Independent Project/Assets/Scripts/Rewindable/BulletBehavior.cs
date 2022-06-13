@@ -21,7 +21,7 @@ public class BulletBehavior : RewindableObject
     //moves in the direction it's given
 	protected override void DoCommands()
 	{
-        Command command = new Move(this, direction);
+        Command command = new Move(this, direction, false);
         command.Execute();
         commands.Push(command);
 	}
