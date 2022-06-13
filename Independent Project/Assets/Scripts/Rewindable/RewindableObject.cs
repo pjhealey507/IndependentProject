@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class RewindableObject : MonoBehaviour
 {
     public Stack<Command> commands;
-	public int speed;
+	public float speed;
 
 	protected virtual void Start()
 	{
