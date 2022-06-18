@@ -17,9 +17,11 @@ public class Move : Command
 	{
 		sender.GetComponent<Rigidbody2D>().AddForce(new Vector2(direction.x * sender.speed * Time.deltaTime, direction.y * sender.speed * Time.deltaTime));
 
+		float coll_threshold = 1f;
+
 		//if the movement was blocked, dont reverse
 		//if sender is colliding, further movements will screw up the rewinding
-		if (sender.GetComponent<Rigidbody2D>().velocity.x <= 0.5 && sender.GetComponent<Rigidbody2D>().velocity.x >= -0.5 && sender.GetComponent<Rigidbody2D>().velocity.y <= 0.5 && sender.GetComponent<Rigidbody2D>().velocity.y >= -0.5)
+		if (sender.GetComponent<Rigidbody2D>().velocity.x <= coll_threshold && sender.GetComponent<Rigidbody2D>().velocity.x >= -coll_threshold && sender.GetComponent<Rigidbody2D>().velocity.y <= coll_threshold && sender.GetComponent<Rigidbody2D>().velocity.y >= -coll_threshold)
 		{
 			executed = false;
 		}

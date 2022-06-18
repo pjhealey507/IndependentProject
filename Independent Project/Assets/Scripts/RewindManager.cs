@@ -51,7 +51,6 @@ public class RewindManager : MonoBehaviour
         //no collision during rewind
         foreach (RewindableObject c in rewindable_objects)
         {
-            //c.GetComponent<Collider>().enabled = false;
             //change them to rewinding layer, which does not collide with anything
             c.gameObject.layer = 8;
         }
@@ -65,7 +64,6 @@ public class RewindManager : MonoBehaviour
         //turn it back on after
         foreach (RewindableObject c in rewindable_objects)
         {
-            //c.GetComponent<Collider>().enabled = false;
             //set it back after
             c.gameObject.layer = c.layer;
         }
