@@ -163,9 +163,16 @@ MonoBehaviour:
   - {fileID: 1943712998393207436, guid: 0fecabe36aa55b44e945f46051672e41, type: 3}
   - {fileID: 2215416978819470855, guid: 73bd44325bd65d24c92179f6eb070464, type: 3}
   - {fileID: 2831181147757092385, guid: 79e924b3c0eca984a8c0e8ca51437b54, type: 3}
+  - {fileID: 5687126563768604089, guid: 8b859923a902fb845b06fdbb64dab730, type: 3}
+  - {fileID: 4065944358986237224, guid: a9c6f39985d311b4ca0e21dee7972dd2, type: 3}
+  corners:
+  - {fileID: 3982106029019297272, guid: cc420d0495a045548b068b766c15e872, type: 3}
+  - {fileID: 5380274396115720421, guid: d868595afd618d34fa05ea98f307484d, type: 3}
+  - {fileID: 1477901727273077301, guid: ef45718f01eb1554c8bbbb1fb7791e18, type: 3}
+  - {fileID: 1519011957546479762, guid: 9b895dabadae71448961b2527c523584, type: 3}
   grid: {fileID: 1800769786}
-  width: 6
-  height: 6
+  width: 50
+  height: 50
 --- !u!4 &27268716
 Transform:
   m_ObjectHideFlags: 0
