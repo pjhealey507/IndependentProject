@@ -171,8 +171,8 @@ MonoBehaviour:
   - {fileID: 1477901727273077301, guid: ef45718f01eb1554c8bbbb1fb7791e18, type: 3}
   - {fileID: 1519011957546479762, guid: 9b895dabadae71448961b2527c523584, type: 3}
   grid: {fileID: 1800769786}
-  width: 50
-  height: 50
+  width: 6
+  height: 6
 --- !u!4 &27268716
 Transform:
   m_ObjectHideFlags: 0

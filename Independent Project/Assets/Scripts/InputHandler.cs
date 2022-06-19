@@ -37,7 +37,7 @@ public class InputHandler
         if (direction_x != 0 || direction_y != 0)
         {
             Vector3 direction = new Vector3(direction_x, direction_y, 0);
-            command = new Move(sender, direction, sender.colliding);
+            command = new Move(sender, direction);
         }
         else
         {
