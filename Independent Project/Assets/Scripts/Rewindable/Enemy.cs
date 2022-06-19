@@ -16,7 +16,11 @@ public class Enemy : RewindableObject
 
     private Vector3 direction;
 
-    private float max_speed;
+	protected override void Start()
+	{
+        player = FindObjectOfType<PlayerControl>().gameObject;
+		base.Start();
+	}
 
 	protected override void FixedUpdate()
 	{
@@ -26,7 +30,18 @@ public class Enemy : RewindableObject
 
 	protected override void DoCommands()
 	{
-        Command command = new Move(this, direction);
+        Command command;
+
+        //in sweet spot
+        if (cur_distance < max_distance && cur_distance > min_distance)
+        {
+            command = new Stop(this);
+        }
+        else
+        {
+            command = new Move(this, direction);
+        }
+
         command.Execute();
         commands.Push(command);
 	}
@@ -34,46 +49,21 @@ public class Enemy : RewindableObject
     void DetermineDirection()
     {
         cur_distance = Vector3.Distance(player.transform.position, this.transform.position);
-        Debug.Log("cur_distance: " + cur_distance);
 
         //player is too close
         if (cur_distance < min_distance)
         {
             //move away from player
-            direction += -(player.transform.position - this.transform.position);
-
-            speed *= ((cur_distance - min_distance) / 100);
-
-            Debug.Log((cur_distance - min_distance) / 100);
+            direction = -(player.transform.position - this.transform.position);
         }
 
         //player is too far
         if (cur_distance > max_distance)
         {
             //move towards player
-            direction += (player.transform.position - this.transform.position);
-
-            speed *= ((cur_distance - max_distance)/100);
-
-            Debug.Log((cur_distance - max_distance)/100);
+            direction = (player.transform.position - this.transform.position);
         }
 
-        /*
-        if (speed > max_speed)
-        {
-            speed = max_speed;
-        }
-        */
-        if (speed <= 0)
-        {
-            speed = 1;
-        }
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        direction = direction.normalized;
     }
 }

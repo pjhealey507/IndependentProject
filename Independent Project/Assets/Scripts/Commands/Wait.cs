@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Wait : Command
 {
-	public Wait(Character s) : base(s)
+	public Wait(RewindableObject s) : base(s)
 	{
 		sender = s;
 	}
