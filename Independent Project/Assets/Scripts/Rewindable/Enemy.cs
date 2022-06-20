@@ -14,17 +14,24 @@ public class Enemy : RewindableObject
     public bool clockwise;
     public GameObject player;
 
+    //movement direction
     private Vector3 direction;
+
+    //shooting stuff
+    float shoot_timer = 2;
+    float cur_shoot_timer;
 
 	protected override void Start()
 	{
         player = FindObjectOfType<PlayerControl>().gameObject;
+        cur_shoot_timer = shoot_timer;
 		base.Start();
 	}
 
 	protected override void FixedUpdate()
 	{
         DetermineDirection();
+        DecrementTimer();
 		base.FixedUpdate();
 	}
 
@@ -65,5 +72,34 @@ public class Enemy : RewindableObject
         }
 
         direction = direction.normalized;
+    }
+
+    public Vector3 GetShootDirection()
+    {
+        return player.transform.position - this.transform.position;
+    }
+
+    public void Shoot(Vector3 direction)
+    {
+        GameObject bullet;
+
+        bullet = BulletManager.instance.GetBullet();
+        if (bullet != null)
+        {
+            bullet.transform.position = this.transform.position;
+            bullet.GetComponent<BulletBehavior>().direction = direction.normalized;
+            bullet.SetActive(true);
+        }
+    }
+
+    public void DecrementTimer()
+    {
+        cur_shoot_timer -= Time.deltaTime;
+
+        if (cur_shoot_timer <= 0)
+        {
+            Shoot(GetShootDirection());
+            cur_shoot_timer = shoot_timer;
+        }
     }
 }

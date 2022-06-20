@@ -27,7 +27,7 @@ public class PlayerControl : Character
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Shoot();
+            Shoot(GetMousePosition());
         }
 
         base.FixedUpdate();
@@ -40,17 +40,23 @@ public class PlayerControl : Character
         commands.Push(command);
     }
 
-    public void Shoot()
+    public Vector3 GetMousePosition()
     {
-        GameObject bullet;
         Vector2 mouse_pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 player_pos = new Vector2(transform.position.x, transform.position.y);
+
+        return (mouse_pos - player_pos);
+    }
+
+    public void Shoot(Vector3 direction)
+    {
+        GameObject bullet;
 
         bullet = BulletManager.instance.GetBullet();
         if (bullet != null)
         {
             bullet.transform.position = this.transform.position;
-            bullet.GetComponent<BulletBehavior>().direction = (mouse_pos - player_pos).normalized;
+            bullet.GetComponent<BulletBehavior>().direction = direction.normalized;
             bullet.SetActive(true);
         }
     }
