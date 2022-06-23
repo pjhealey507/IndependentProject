@@ -10,6 +10,8 @@ public class RoomManager : MonoBehaviour
     //array of the room prefabs
     public GameObject[] rooms = new GameObject[5];
     public GameObject[] corners = new GameObject[5];
+    public GameObject start;
+    public GameObject end;
 
     //Tilemaps must be a child of the grid to show up
     public GameObject grid;
@@ -78,5 +80,8 @@ public class RoomManager : MonoBehaviour
                 }
             }
         }
+
+        //place starting room (hardcoded)
+        Instantiate(start, new Vector3(-1, -12, 0), Quaternion.identity, grid.transform);
     }
 }

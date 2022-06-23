@@ -28,10 +28,8 @@ public class BulletBehavior : RewindableObject
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-        Debug.Log("collide");
         if (collision.gameObject.CompareTag("Wall"))
         {
-            Debug.Log("Wall");
             BulletManager.instance.RemoveBullet(this);
         }
 	}
