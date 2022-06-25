@@ -83,5 +83,15 @@ public class RoomManager : MonoBehaviour
 
         //place starting room (hardcoded)
         Instantiate(start, new Vector3(-1, -12, 0), Quaternion.identity, grid.transform);
+
+        //place end room (based on width and height)
+        if (width % 2 == 0)
+        {
+            Instantiate(end, new Vector3(2, height * room_size, 0), Quaternion.identity, grid.transform);
+        }
+        else
+        {
+            Instantiate(end, new Vector3((width - 1) * room_size, height * room_size, 0), Quaternion.identity, grid.transform);
+        }
     }
 }
