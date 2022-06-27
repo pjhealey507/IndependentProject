@@ -173,8 +173,8 @@ MonoBehaviour:
   start: {fileID: 7919572626178430219, guid: 1d8e3a04866f9bc4eb4961ce62b32c43, type: 3}
   end: {fileID: 7284014456644893526, guid: f427d6352c26aea43bd1ab7610a29e5e, type: 3}
   grid: {fileID: 1800769786}
-  width: 4
-  height: 4
+  width: 2
+  height: 2
 --- !u!4 &27268716
 Transform:
   m_ObjectHideFlags: 0
