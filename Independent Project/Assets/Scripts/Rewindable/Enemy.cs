@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //stays a certain distance from the player, moves in circles around the player
-public class Enemy : RewindableObject
+public class Enemy : Character
 {
     //enemy stays a certain distance away
     public float max_distance;

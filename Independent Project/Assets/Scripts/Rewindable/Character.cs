@@ -10,9 +10,6 @@ public class Character : RewindableObject
     public int hp;
     public int max_hp;
 
-    //to prevent move commands into a wall
-    public bool colliding;
-
     //remove
     public TMP_Text hp_text;
 
@@ -28,27 +25,25 @@ public class Character : RewindableObject
 
     public virtual void Die()
     {
-        
+        //particle effects
+
+        Destroy(this.gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log(hp);
+
         if (collision.gameObject.GetComponent<Damaging>() != null)
         {
             Command command = new LoseHealth(this, collision.gameObject.GetComponent<Damaging>().damage);
             command.Execute();
             commands.Push(command);
-        }
 
-        else
-        {
-            colliding = true;
+            if (hp <= 0)
+            {
+                Die();
+            }
         }
     }
-
-	private void OnCollisionExit2D(Collision2D collision)
-	{
-        Debug.Log("coll exit");
-        colliding = false;
-	}
 }
