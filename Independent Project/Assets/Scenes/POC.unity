@@ -173,8 +173,8 @@ MonoBehaviour:
   start: {fileID: 7919572626178430219, guid: 1d8e3a04866f9bc4eb4961ce62b32c43, type: 3}
   end: {fileID: 7284014456644893526, guid: f427d6352c26aea43bd1ab7610a29e5e, type: 3}
   grid: {fileID: 1800769786}
-  width: 2
-  height: 2
+  width: 4
+  height: 4
 --- !u!4 &27268716
 Transform:
   m_ObjectHideFlags: 0
@@ -1342,7 +1342,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullets: []
+  enemy_bullets: []
   bullet_prefab: {fileID: 6709736295126233814, guid: 781e16ee08e4cb945812a84f9bd09665, type: 3}
+  enemy_bullet_prefab: {fileID: 4074274177064176433, guid: 9bc476a3ba88d76418f365bd0da853cf, type: 3}
+  pool_count: 50
+  enemy_pool_count: 50
 --- !u!4 &1609726895
 Transform:
   m_ObjectHideFlags: 0

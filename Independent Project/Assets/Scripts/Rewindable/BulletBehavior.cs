@@ -28,9 +28,9 @@ public class BulletBehavior : RewindableObject
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-        if (collision.gameObject.CompareTag("Wall"))
+        if (collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Enemy"))
         {
             BulletManager.instance.RemoveBullet(this);
         }
-	}
+    }
 }

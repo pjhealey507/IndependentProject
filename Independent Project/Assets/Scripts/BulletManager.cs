@@ -21,10 +21,13 @@ public class BulletManager : MonoBehaviour
     }
 
     public List<GameObject> bullets;
+    public List<GameObject> enemy_bullets;
     public GameObject bullet_prefab;
+    public GameObject enemy_bullet_prefab;
 
     //how many are created
-    int pool_count = 100;
+    public int pool_count = 50;
+    public int enemy_pool_count = 50;
 
     // Start is called before the first frame update
     void Start()
@@ -37,12 +40,12 @@ public class BulletManager : MonoBehaviour
             tmp.SetActive(false);
             bullets.Add(tmp);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        for (int i = 0; i < enemy_pool_count; i++)
+        {
+            tmp = Instantiate(enemy_bullet_prefab);
+            tmp.SetActive(false);
+            enemy_bullets.Add(tmp);
+        }
     }
 
     //return the earliest non-active bullet in the list
@@ -53,6 +56,19 @@ public class BulletManager : MonoBehaviour
             if (!bullets[i].activeInHierarchy)
             {
                 return bullets[i];
+            }
+        }
+        return null;
+    }
+
+    //return the earliest non-active enemy bullet in the list
+    public GameObject GetEnemyBullet()
+    {
+        for (int i = 0; i < enemy_pool_count; i++)
+        {
+            if (!enemy_bullets[i].activeInHierarchy)
+            {
+                return enemy_bullets[i];
             }
         }
         return null;

@@ -83,7 +83,7 @@ public class Enemy : RewindableObject
     {
         GameObject bullet;
 
-        bullet = BulletManager.instance.GetBullet();
+        bullet = BulletManager.instance.GetEnemyBullet();
         if (bullet != null)
         {
             bullet.transform.position = this.transform.position;
