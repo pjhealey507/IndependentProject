@@ -51,13 +51,11 @@ public class InputHandler
     {
         if (Input.GetKeyUp(rewind))
         {
-            Debug.Log("Exit rewind");
             RewindManager.instance.ExitRewind();
         }
 
         if (Input.GetKeyDown(rewind))
         {
-            Debug.Log("Enter rewind");
             RewindManager.instance.EnterRewind();
         }
     }

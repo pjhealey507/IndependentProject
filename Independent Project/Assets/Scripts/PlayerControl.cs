@@ -60,4 +60,14 @@ public class PlayerControl : Character
             bullet.SetActive(true);
         }
     }
+
+    protected override void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<Damaging>() != null)
+        {
+            Camera.main.GetComponent<CameraEffects>().PlayerDamaged();
+        }
+
+        base.OnCollisionEnter2D(collision);
+    }
 }
