@@ -4,26 +4,21 @@ using UnityEngine;
 
 public class CameraEffects : MonoBehaviour
 {
-    private bool rewinding = false;
-    public Shader gray_shader;
+    public UnityEngine.Rendering.VolumeProfile volumeProfile;
+    private UnityEngine.Rendering.Universal.ColorAdjustments color_adjust;
 
-    public void RewindOn()
+    private void Start()
+	{
+        volumeProfile.TryGet(out color_adjust);
+    }
+
+	public void RewindOn()
     {
-        rewinding = true;
+        color_adjust.saturation.value = -100;
     }
 
     public void RewindOff()
     {
-        rewinding = false;
+        color_adjust.saturation.value = 0;
     }
-
-	private void OnRenderImage(RenderTexture source, RenderTexture destination)
-	{
-        Debug.Log("OnRenderImage");
-
-        if (rewinding)
-        {
-            Graphics.Blit(source, destination, new Material(gray_shader));
-        }
-	}
 }
