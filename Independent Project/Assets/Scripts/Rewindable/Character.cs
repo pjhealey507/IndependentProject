@@ -32,8 +32,6 @@ public class Character : RewindableObject
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(hp);
-
         if (collision.gameObject.GetComponent<Damaging>() != null)
         {
             Command command = new LoseHealth(this, collision.gameObject.GetComponent<Damaging>().damage);

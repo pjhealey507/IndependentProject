@@ -54,6 +54,9 @@ public class RewindManager : MonoBehaviour
             //change them to rewinding layer, which does not collide with anything
             c.gameObject.layer = 8;
         }
+
+        //turn on grayscale camera effect
+        Camera.main.GetComponent<CameraEffects>().RewindOn();
     }
 
     public void ExitRewind()
@@ -67,6 +70,9 @@ public class RewindManager : MonoBehaviour
             //set it back after
             c.gameObject.layer = c.layer;
         }
+
+        //turn off grayscale camera effect
+        Camera.main.GetComponent<CameraEffects>().RewindOff();
     }
 
     public void AddRewindableObject(RewindableObject r)
