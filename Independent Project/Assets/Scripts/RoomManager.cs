@@ -7,6 +7,20 @@ using UnityEngine.Tilemaps;
 
 public class RoomManager : MonoBehaviour
 {
+    //Singleton
+    public static RoomManager instance { get; private set; }
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
+
     //array of the room prefabs
     public GameObject[] rooms = new GameObject[5];
     public GameObject[] corners = new GameObject[5];
@@ -21,7 +35,7 @@ public class RoomManager : MonoBehaviour
     public int height;
 
     //the size of the rooms, so that they will be spaced correctly on the grid
-    int room_size = 14;
+    public int room_size = 14;
 
     public void Start()
     {

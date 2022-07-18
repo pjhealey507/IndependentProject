@@ -27,7 +27,7 @@ public class Character : RewindableObject
     {
         //particle effects
 
-        Destroy(this.gameObject);
+        EnemyManager.instance.RemoveEnemy(this);
     }
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)

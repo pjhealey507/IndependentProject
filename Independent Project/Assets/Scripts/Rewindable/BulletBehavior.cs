@@ -30,6 +30,7 @@ public class BulletBehavior : RewindableObject
 	{
         if (collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Enemy"))
         {
+            commands.Clear();
             BulletManager.instance.RemoveBullet(this);
         }
     }
