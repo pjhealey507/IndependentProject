@@ -33,6 +33,7 @@ public class BulletManager : MonoBehaviour
     void Start()
     {
         bullets = new List<GameObject>();
+        enemy_bullets = new List<GameObject>();
         GameObject tmp;
         for (int i = 0; i < pool_count; i++)
         {
@@ -55,6 +56,7 @@ public class BulletManager : MonoBehaviour
         {
             if (!bullets[i].activeInHierarchy)
             {
+                RewindManager.instance.AddRewindableObject(bullets[i].GetComponent<RewindableObject>());
                 return bullets[i];
             }
         }
@@ -68,6 +70,7 @@ public class BulletManager : MonoBehaviour
         {
             if (!enemy_bullets[i].activeInHierarchy)
             {
+                RewindManager.instance.AddRewindableObject(enemy_bullets[i].GetComponent<RewindableObject>());
                 return enemy_bullets[i];
             }
         }
