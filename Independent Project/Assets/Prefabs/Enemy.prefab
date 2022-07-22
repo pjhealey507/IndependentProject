@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3937660508436858094}
   - component: {fileID: 3937660508436858092}
   - component: {fileID: 1620347117056559785}
+  - component: {fileID: 719306135860411862}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Enemy
@@ -110,7 +111,6 @@ MonoBehaviour:
   cur_distance: 0
   clockwise: 0
   player: {fileID: 0}
-  enemy_mat: {fileID: 2100000, guid: e54c2e4c927bf3046b0041dae9b1ca07, type: 2}
 --- !u!50 &3937660508436858095
 Rigidbody2D:
   serializedVersion: 4
@@ -184,3 +184,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flash_amount: 6
   flash_time: 0.1
+--- !u!114 &719306135860411862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3937660508436858082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23298b396689d054390a7290eccc7469, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

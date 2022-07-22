@@ -102,4 +102,11 @@ public class Enemy : Character
             cur_shoot_timer = shoot_timer;
         }
     }
+
+	public override void Die()
+	{
+        EnemyManager.instance.RemoveEnemy(this);
+
+        base.Die();
+	}
 }

@@ -27,8 +27,12 @@ public class EnemyManager : MonoBehaviour
 
     public int enemies_to_start;
 
+    private ParticleSystem particles;
+
 	public void Start()
 	{
+        particles = GetComponent<ParticleSystem>();
+
         enemies = new List<GameObject>();
         GameObject tmp;
         for (int i = 0; i < pool_count; i++)
@@ -56,7 +60,11 @@ public class EnemyManager : MonoBehaviour
     }
 
     public void RemoveEnemy(RewindableObject sender)
-    {
+    {  
+        //particle effect played at the enemy location when it is removed
+        particles.transform.position = sender.transform.position;
+        particles.Play();
+
         RewindManager.instance.RemoveRewindableObject(sender);
         sender.gameObject.SetActive(false);
     }
